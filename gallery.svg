@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="wall" x2="0" y2="1">
+      <stop stop-color="#eceae5"/>
+      <stop offset="1" stop-color="#d9d6cf"/>
+    </linearGradient>
+    <linearGradient id="floor" x2="0" y2="1">
+      <stop stop-color="#b6b2aa"/>
+      <stop offset="1" stop-color="#8f8c85"/>
+    </linearGradient>
+    <radialGradient id="spot">
+      <stop stop-color="#fff9e8" stop-opacity=".52"/>
+      <stop offset="1" stop-color="#fff9e8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1440" height="900" fill="url(#wall)"/>
+  <path d="M0 639H1440V900H0Z" fill="url(#floor)"/>
+  <path d="M0 638H1440" stroke="#bdbbb6" stroke-width="7"/>
+
+  <!-- Architectural divisions -->
+  <path d="M0 0h190v639H0Z" fill="#e2dfd9" opacity=".48"/>
+  <path d="M1250 0h190v639h-190Z" fill="#e2dfd9" opacity=".48"/>
+  <path d="M190 0v638M1250 0v638" stroke="#d0cec8" stroke-width="3"/>
+
+  <!-- Light falls on the exact place occupied by the unchanged painting -->
+  <ellipse cx="720" cy="387" rx="355" ry="325" fill="url(#spot)"/>
+  <rect x="617" y="17" width="206" height="10" rx="4" fill="#8d8a83"/>
+  <path d="M680 28 643 163M760 28l37 135" stroke="#e6e3db" stroke-width="5" opacity=".5"/>
+
+  <!-- A small blank gallery label; it makes no attribution claim -->
+  <rect x="972" y="425" width="116" height="62" fill="#f8f7f3"/>
+  <path d="M990 442h64M990 452h78M990 464h51" stroke="#c7c4bd" stroke-width="3"/>
+
+  <path d="M0 900 550 639M1440 900 890 639" stroke="#d9d6cf" stroke-width="3" opacity=".4"/>
+  <path d="M0 754h1440" stroke="#dbd8d1" stroke-width="3" opacity=".3"/>
+</svg>
