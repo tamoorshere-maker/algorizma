@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="wall" x2="0" y2="1">
+      <stop stop-color="#d7c6ad"/>
+      <stop offset="1" stop-color="#bea78e"/>
+    </linearGradient>
+    <linearGradient id="floor" x2="0" y2="1">
+      <stop stop-color="#927864"/>
+      <stop offset="1" stop-color="#6e5a4b"/>
+    </linearGradient>
+    <linearGradient id="light" x2="0" y2="1">
+      <stop stop-color="#f6e7ba" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#f6e7ba" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1440" height="900" fill="url(#wall)"/>
+  <path d="M0 640H1440V900H0Z" fill="url(#floor)"/>
+  <path d="M0 641H1440" stroke="#e8d9c4" stroke-width="14"/>
+
+  <!-- A plain window, set away from the painting -->
+  <rect x="87" y="170" width="257" height="336" fill="#8a7768"/>
+  <rect x="96" y="179" width="239" height="318" fill="#bbc1b3"/>
+  <path d="M101 469 330 226V492H101Z" fill="#ddcaaa" opacity=".43"/>
+  <path d="M217 180V496M97 336H335" stroke="#eee0cd" stroke-width="12"/>
+  <path d="M66 158Q85 290 72 513L124 512Q107 294 124 158Z" fill="#998b79"/>
+  <path d="M312 158Q335 290 318 513L365 512Q353 294 369 158Z" fill="#998b79"/>
+
+  <!-- Quiet details of a lived-in room -->
+  <path d="M1081 593h180l27 55h-234Z" fill="#57483d"/>
+  <rect x="1100" y="620" width="15" height="75" fill="#57483d"/>
+  <rect x="1237" y="620" width="15" height="75" fill="#57483d"/>
+  <path d="M1163 411 1128 531h70Z" fill="#d3b991"/>
+  <path d="M1163 531v64" stroke="#5a4a3e" stroke-width="8"/>
+  <circle cx="1163" cy="408" r="13" fill="#e9d6ae"/>
+
+  <rect x="35" y="630" width="432" height="149" rx="22" fill="#806e5d"/>
+  <rect x="57" y="580" width="387" height="100" rx="28" fill="#9f8a76"/>
+  <rect x="43" y="630" width="72" height="118" rx="19" fill="#8d7967"/>
+  <rect x="365" y="630" width="72" height="118" rx="19" fill="#8d7967"/>
+  <path d="M161 583q39 67 83 0" fill="#aa947c"/>
+  <path d="M285 581q40 63 81 0" fill="#aa947c"/>
+  <rect x="60" y="768" width="26" height="54" fill="#56483e"/>
+  <rect x="391" y="768" width="26" height="54" fill="#56483e"/>
+
+  <ellipse cx="795" cy="848" rx="370" ry="65" fill="#b0947c" opacity=".32"/>
+  <path d="M890 899 1440 674" stroke="#c0a58a" stroke-width="3" opacity=".25"/>
+  <path d="M0 759 450 899" stroke="#c0a58a" stroke-width="3" opacity=".25"/>
+  <rect width="1440" height="900" fill="url(#light)"/>
+</svg>
