@@ -1,35 +1,58 @@
-/* script.js */
-document.addEventListener('DOMContentLoaded', () => {
-  const storySection = document.querySelector('.story');
-  const captions = document.querySelectorAll('.story-caption');
+(() => {
+  const story = document.querySelector(".story");
+  const stage = document.querySelector(".story-stage");
 
-  if (storySection) {
-    window.addEventListener('scroll', () => {
-      const scrollPos = window.scrollY;
-      const windowHeight = window.innerHeight;
-      
-      // Toggle backgrounds at mid-scroll
-      if (scrollPos > windowHeight * 0.8) {
-        storySection.classList.add('scrolled');
-      } else {
-        storySection.classList.remove('scrolled');
-      }
+  if (!story || !stage) return;
 
-      // Simple scroll text switcher logic
-      let activeIndex = 0;
-      if (scrollPos > windowHeight * 1.5) {
-        activeIndex = 2;
-      } else if (scrollPos > windowHeight * 0.6) {
-        activeIndex = 1;
-      }
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (reducedMotion.matches) return;
 
-      captions.forEach((cap, idx) => {
-        if (idx === activeIndex) {
-          cap.classList.add('active');
-        } else {
-          cap.classList.remove('active');
-        }
-      });
+  const gallery = stage.querySelector(".scene-gallery");
+  const captions = [
+    stage.querySelector(".caption-one"),
+    stage.querySelector(".caption-two"),
+    stage.querySelector(".caption-three")
+  ];
+
+  const clamp = (value, min = 0, max = 1) =>
+    Math.min(max, Math.max(min, value));
+
+  const ramp = (progress, start, end) =>
+    clamp((progress - start) / (end - start));
+
+  let scheduled = false;
+
+  function updateStory() {
+    const distance = story.offsetHeight - window.innerHeight;
+    const travelled = -story.getBoundingClientRect().top;
+    const progress = distance > 0 ? clamp(travelled / distance) : 0;
+
+    /* Crossfade only the surroundings. The painting is untouched. */
+    gallery.style.opacity = ramp(progress, 0.32, 0.72);
+
+    const opacities = [
+      1 - ramp(progress, 0.12, 0.32),
+      ramp(progress, 0.23, 0.39) * (1 - ramp(progress, 0.58, 0.75)),
+      ramp(progress, 0.68, 0.88)
+    ];
+
+    captions.forEach((caption, index) => {
+      caption.style.opacity = opacities[index];
+      caption.style.transform =
+        `translateY(${Math.round((1 - opacities[index]) * 22)}px)`;
     });
+
+    scheduled = false;
   }
-});
+
+  function requestUpdate() {
+    if (!scheduled) {
+      scheduled = true;
+      requestAnimationFrame(updateStory);
+    }
+  }
+
+  window.addEventListener("scroll", requestUpdate, { passive: true });
+  window.addEventListener("resize", requestUpdate);
+  updateStory();
+})();
